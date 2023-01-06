@@ -26,5 +26,6 @@ namespace PortfolioApiV1.Models.Domain
         public IEnumerable<TechnicalSkills>? TechnicalSkills { get; set; }
         public IEnumerable<Trajectory>? Trajectories { get; set; }
         public IEnumerable<WorkRecord>? WorkRecords { get; set; }
+        public IEnumerable<Comment>? Comments { get; set; }
     }
 }
