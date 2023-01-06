@@ -16,15 +16,15 @@ namespace PortfolioApiV1.Models.Domain
         public string? About { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public IEnumerable<Post> Posts { get; set; }
-        public IEnumerable<Education> Educations { get; set; }
-        public IEnumerable<Language> Languages { get; set; }
-        public Location Location { get; set; }
-        public IEnumerable<Ocupation> Ocupations { get; set; }
-        public IEnumerable<Social> Socials { get; set; }
-        public IEnumerable<SoftSkills> SoftSkills { get; set; }
-        public IEnumerable<TechnicalSkills> TechnicalSkills { get; set; }
-        public IEnumerable<Trajectory> Trajectories { get; set; }
-        public IEnumerable<WorkRecord> WorkRecords { get; set; }
+        public IEnumerable<Post>? Posts { get; set; }
+        public IEnumerable<Education>? Educations { get; set; }
+        public IEnumerable<Language>? Languages { get; set; }
+        public Location? Location { get; set; }
+        public IEnumerable<Ocupation>? Ocupations { get; set; }
+        public IEnumerable<Social>? Socials { get; set; }
+        public IEnumerable<SoftSkills>? SoftSkills { get; set; }
+        public IEnumerable<TechnicalSkills>? TechnicalSkills { get; set; }
+        public IEnumerable<Trajectory>? Trajectories { get; set; }
+        public IEnumerable<WorkRecord>? WorkRecords { get; set; }
     }
 }

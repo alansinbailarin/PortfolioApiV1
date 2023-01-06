@@ -9,6 +9,6 @@
         public DateTime ToDate { get; set; }
         public bool IsActive { get; set; }
 
-        public IEnumerable<User> Users { get; set; }
+        public IEnumerable<User>? Users { get; set; }
     }
 }

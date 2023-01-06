@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string Color { get; set; }
 
-        public IEnumerable<Post> Posts { get; set; }
+        public IEnumerable<Post>? Posts { get; set; }
     }
 }
