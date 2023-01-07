@@ -9,6 +9,5 @@ namespace PortfolioApiV1.Repositories
         Task<User> AddUserAsync(User User);
         Task<User> UpdateUserAsync(Guid UserId, User User);
         Task<User> DeleteUserAsync(Guid UserId);
-        Task<User> GetByFullName(string FullName);
     }
 }

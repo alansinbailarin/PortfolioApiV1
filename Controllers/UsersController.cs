@@ -23,7 +23,7 @@ namespace PortfolioApiV1.Controllers
         {
             var users = await userRepository.GetAllAsync();
 
-            var usersDto = mapper.Map<List<Models.Dtos.User>>(users);
+            var usersDto = mapper.Map<List<User>>(users);
 
             return Ok(usersDto);
         }
@@ -40,7 +40,7 @@ namespace PortfolioApiV1.Controllers
                 return NotFound();
             }
 
-            var userDto = mapper.Map<Models.Dtos.User>(user);
+            var userDto = mapper.Map<User>(user);
 
             return Ok(userDto);
         }
@@ -86,7 +86,7 @@ namespace PortfolioApiV1.Controllers
         [HttpPut]
         [Route("{UserId:guid}")]
         public async Task<IActionResult> UpdateUserAsync([FromRoute] Guid UserId, [FromBody] 
-        Models.Dtos.UpdateUserRequest updateUserRequest)
+        UpdateUserRequest updateUserRequest)
         {
             var user = new Models.Domain.User
             {
@@ -139,7 +139,7 @@ namespace PortfolioApiV1.Controllers
                 return NotFound();
             }
 
-            var userDto = mapper.Map<Models.Dtos.User>(user);
+            var userDto = mapper.Map<User>(user);
 
             return Ok(userDto);
         }

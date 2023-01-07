@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PortfolioApiV1.Data;
 using PortfolioApiV1.Repositories;
+using PortfolioApiV1.Repositories.Trajectory;
 using PortfolioApiV1.Repositories.WorkRecords;
 using System.Text.Json.Serialization;
 
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<PortfolioDbContext>(options =>
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IWorkRecordsRepository, WorkRecordsRepository>();
+builder.Services.AddScoped<ITrajectoryRepository, TrajectoryRepository>();
 
 builder.Services.AddCors(options =>
 {

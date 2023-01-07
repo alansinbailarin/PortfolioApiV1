@@ -1,4 +1,4 @@
-﻿namespace PortfolioApiV1.Models.Domain
+﻿namespace PortfolioApiV1.Models.Dtos
 {
     public class Trajectory
     {
@@ -11,6 +11,5 @@
         public string? Link { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid? UserId { get; set; }
-
     }
 }
