@@ -1,6 +1,6 @@
-﻿namespace PortfolioApiV1.Models.Domain
+﻿namespace PortfolioApiV1.Models.Dtos
 {
-    public class WorkRecord
+    public class WorkRecords
     {
         public Guid WorkRecordId { get; set; }
         public string Title { get; set; }
