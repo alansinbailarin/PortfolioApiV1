@@ -116,5 +116,91 @@ namespace PortfolioApiV1.Controllers
 
             return CreatedAtAction(nameof(GetTechnicalSkillsAsync), new { TechnicalSkillsId = technicalSkillsDto.TechnicalSkillsId }, technicalSkillsDto);
         }
+
+        [HttpPut]
+        [Route("soft/id/{SoftSkillsId:guid}")]
+        public async Task<IActionResult> UpdateSoftSkillsAsync([FromRoute] Guid SoftSkillsId,
+            [FromBody] UpdateSoftSkillsRequest updateSoftSkillsRequest)
+        {
+            var softSkills = new Models.Domain.SoftSkills
+            {
+                Name = updateSoftSkillsRequest.Name
+            };
+
+            softSkills = await skillsRepository.UpdateSoftSkillsAsync(SoftSkillsId, softSkills);
+
+            if (softSkills == null)
+            {
+                return NotFound();
+            }
+
+            var softSkillsDto = new Models.Dtos.SoftSkills
+            {
+                SoftSkillsId = softSkills.SoftSkillsId,
+                Name = softSkills.Name
+            };
+
+            return Ok(softSkillsDto);
+        }
+
+        [HttpPut]
+        [Route("technical/id/{TechnicalSkillsId:guid}")]
+        public async Task<IActionResult> UpdateTechnicalSkillsAsync([FromRoute] Guid TechnicalSkillsId,
+            [FromBody] UpdateTechnicalSkillsRequest updateTechnicalSkillsRequest)
+        {
+            var technicalSkills = new Models.Domain.TechnicalSkills
+            {
+                Name = updateTechnicalSkillsRequest.Name,
+                Experience = updateTechnicalSkillsRequest.Experience
+            };
+
+            technicalSkills = await skillsRepository.UpdateTechnicalSkillsAsync(TechnicalSkillsId, technicalSkills);
+
+            if (technicalSkills == null)
+            {
+                return NotFound();
+            }
+
+            var technicalSkillsDto = new Models.Dtos.TechnicalSkills
+            {
+                TechnicalSkillsId = technicalSkills.TechnicalSkillsId,
+                Name = technicalSkills.Name,
+                Experience = technicalSkills.Experience
+            };
+
+            return Ok(technicalSkillsDto);
+        }
+
+        [HttpDelete]
+        [Route("soft/id/{SoftSkillsId:guid}")]
+        public async Task<IActionResult> DeleteSoftSkillsAsync(Guid SoftSkillsId)
+        {
+            var softSkills = await skillsRepository.DeleteSoftSkillsAsync(SoftSkillsId);
+
+            if (softSkills == null)
+            {
+                NotFound();
+            }
+
+            var softSkillsDto = mapper.Map<Models.Dtos.SoftSkills>(softSkills);
+
+            return Ok(softSkillsDto);
+        }
+
+        [HttpDelete]
+        [Route("technical/id/{TechnicalSkillsId:guid}")]
+        public async Task<IActionResult> DeleteTechnicalSkillsAsync(Guid TechnicalSkillsId)
+        {
+            var technicalSkills = await skillsRepository.DeleteTechnicalSkillsAsync(TechnicalSkillsId);
+
+            if (technicalSkills == null)
+            {
+                NotFound();
+            }
+
+            var technicalSkillsDto = mapper.Map<Models.Dtos.TechnicalSkills>(technicalSkills);
+
+            return Ok(technicalSkillsDto);
+        }
     }
 }
