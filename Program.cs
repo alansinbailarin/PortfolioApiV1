@@ -18,8 +18,10 @@ builder.Services.AddDbContext<PortfolioDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("PortfolioV1"));
 });
+
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ISkillsRepository, SkillsRepository>();
 builder.Services.AddScoped<IWorkRecordsRepository, WorkRecordsRepository>();
 builder.Services.AddScoped<ITrajectoryRepository, TrajectoryRepository>();
 

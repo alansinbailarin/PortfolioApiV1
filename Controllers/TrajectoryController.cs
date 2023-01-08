@@ -20,6 +20,7 @@ namespace PortfolioApiV1.Controllers
         }
 
         [HttpGet]
+        [Route("get")]
         public async Task<IActionResult> GetAllTrajectoriesAsync()
         {
             var trajectories = await trajectoryRepository.GetAllAsync();
@@ -30,7 +31,7 @@ namespace PortfolioApiV1.Controllers
         }
 
         [HttpGet]
-        [Route("{TrajectoryId:guid}")]
+        [Route("id/{TrajectoryId:guid}")]
         [ActionName("GetTrajectoriesAsync")]
         public async Task<IActionResult> GetTrajectoriesAsync(Guid TrajectoryId)
         {
@@ -47,6 +48,7 @@ namespace PortfolioApiV1.Controllers
         }
 
         [HttpPost]
+        [Route("Add")]
         public async Task<IActionResult> AddTrajectoryAsync([FromBody] AddTrajectoryRequest addTrajectoryRequest)
         {
             var trajectories = new Models.Domain.Trajectory
@@ -80,7 +82,7 @@ namespace PortfolioApiV1.Controllers
         }
 
         [HttpPut]
-        [Route("{TrajectoryId:guid}")]
+        [Route("id/{TrajectoryId:guid}")]
         public async Task<IActionResult> UpdateTrajectoryAsync([FromRoute] Guid TrajectoryId, [FromBody]
         UpdateTrajectoryRequest updateTrajectoryRequest)
         {
@@ -120,7 +122,7 @@ namespace PortfolioApiV1.Controllers
         }
 
         [HttpDelete]
-        [Route("{TrajectoryId:guid}")]
+        [Route("id/{TrajectoryId:guid}")]
         public async Task<IActionResult> DeleteTrajectoryAsync(Guid TrajectoryId)
         {
             var trajectory = await trajectoryRepository.DeleteTrajectoryAsync(TrajectoryId);
